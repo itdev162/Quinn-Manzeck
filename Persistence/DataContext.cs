@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Persistence;
 using Domain;
 
 namespace Persistence
@@ -13,6 +12,9 @@ namespace Persistence
         public DbSet<Value> Values { get; set; }
         public DbSet<Post> Posts { get; set; }
 
+        public DataContext(DbContextOptions options) : base(options)
+        {
+        }
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Value>().HasData(
@@ -21,9 +23,7 @@ namespace Persistence
                 new Value { Id = 3, Name = "Value3"}
             );
         }
-        public DataContext(DbContextOptions options) : base(options)
-        {
-        }
+        
     }
     
 }
