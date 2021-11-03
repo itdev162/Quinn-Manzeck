@@ -2,7 +2,10 @@ import React from 'react';
 import './App.css';
 import axios from 'axios';
 
+
+
 class App extends React.Component {
+
   state = {
     values: []
   }
@@ -20,14 +23,14 @@ class App extends React.Component {
   }
 
   render() {
-    return (
-      <div className="App">
-      <header className="App-header">
-        BlogBox
-      </header>
-      {this.state.values.map((value: any) => <div key={value}>{value}</div>)}
-    </div>
-    );
+      return (
+        <div className="App">
+          <header className="App-header">
+            BlogBox
+          </header>
+            {this.state.values.map((value: any) => <div key={value}>{value}</div>)}
+        </div>
+      );
   }
 }
 export default App;
